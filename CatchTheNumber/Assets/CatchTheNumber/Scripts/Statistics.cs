@@ -31,24 +31,13 @@ public class Statistics : MonoBehaviour {
         reward_video = RewardBasedVideoAd.Instance;
         LoadBestScore();
         catch_number = Random.Range(0, 20);
-        UpdateScoreAndCatchNumber();
+        SetScoreAndCatchNumberTxt();
         MMBestScore.text = "Best Score: " + best_score.ToString();
         RequestBanner();
         RequestInterstitial();
         RequestRewardVideo();
     }
 
-    void Update()
-    {
-        if (score >= each100)
-        {
-            ComboScore();
-        }
-        if (score > best_score)
-        {
-            UpdateBestScore();
-        }
-    }
     private void ComboScore()
     {
         PlaySounds(smiley_notif);
@@ -74,7 +63,24 @@ public class Statistics : MonoBehaviour {
         }
     }
 
-    public void UpdateScoreAndCatchNumber()
+    public void UpdateScore(int number)
+    {
+        score += number;
+        score_txt.gameObject.GetComponent<Animator>().Play("ScorePlusAnim", -1, 0f);
+        GameUI.GetComponent<Animator>().Play("CatchNumberAnim", -1, 0f);
+        catch_number = Random.Range(0, 20);
+        SetScoreAndCatchNumberTxt();
+        if (score >= each100)
+        {
+            ComboScore();
+        }
+        if (score > best_score)
+        {
+            UpdateBestScore();
+        }
+    }
+
+    public void SetScoreAndCatchNumberTxt()
     {
         score_txt.text = "Score: " + score.ToString();
         catchthenumber_txt.text = "Catch the number: " + catch_number.ToString();
@@ -148,7 +154,7 @@ public class Statistics : MonoBehaviour {
         Ground.SetActive(true);
         bestscore = false;
         score = 0;
-        UpdateScoreAndCatchNumber();
+        SetScoreAndCatchNumberTxt();
     }
     public void SaveBestScore()
     {

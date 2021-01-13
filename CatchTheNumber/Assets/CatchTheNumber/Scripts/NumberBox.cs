@@ -36,12 +36,8 @@ public class NumberBox : MonoBehaviour {
     {
         if (number == inst.catch_number)
         {
-            inst.score += number;
             PlayExpSound(expsound_right);
-            inst.score_txt.gameObject.GetComponent<Animator>().Play("ScorePlusAnim", -1, 0f);
-            inst.GameUI.GetComponent<Animator>().Play("CatchNumberAnim", -1, 0f);
-            inst.catch_number = Random.Range(0, 20);
-            inst.UpdateScoreAndCatchNumber();
+            inst.UpdateScore(number);
             dp_c = Instantiate(destruction_particle_catch, transform.position, transform.rotation) as GameObject;
             DestroyParticles(ref dp_c);
         }

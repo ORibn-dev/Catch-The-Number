@@ -256,3 +256,4 @@ D:\Job\CatchTheNumber\Temp\bin\Debug\Unity.Postprocessing.Editor.dll
 D:\Job\CatchTheNumber\Temp\bin\Debug\Unity.Postprocessing.Runtime.dll
 D:\Job\CatchTheNumber\Temp\bin\Debug\Unity.Postprocessing.Editor.pdb
 D:\Job\CatchTheNumber\Temp\bin\Debug\Unity.Postprocessing.Runtime.pdb
+D:\Job\CatchTheNumber\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
