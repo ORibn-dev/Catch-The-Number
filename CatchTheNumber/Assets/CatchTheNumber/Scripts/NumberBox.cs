@@ -6,19 +6,13 @@ public class NumberBox : MonoBehaviour {
 
     public int number;
     public TextMesh num_text;
-    public GameObject destruction_particle;
-    public GameObject destruction_particle_ground;
-    public GameObject destruction_particle_catch;
+    public GameObject destruction_particle, destruction_particle_ground, destruction_particle_catch;
     public float boxspeed;
-    public AudioClip expsound_right;
-    public AudioClip expsound_wrong;
-    public AudioClip expsound_ground;
-    public Statistics stat;
+    public AudioClip expsound_right, expsound_wrong, expsound_ground;
     public AudioSource audios;
+    public Statistics inst;
     private GameObject[] allnumboxes;
-    private GameObject dp;
-    private GameObject dp_g;
-    private GameObject dp_c;
+    private GameObject dp, dp_g, dp_c;
 
     void Update()
     {
@@ -26,12 +20,12 @@ public class NumberBox : MonoBehaviour {
         if (gameObject.transform.position.y <= 12)
         {
             PlayExpSound(expsound_ground);
-            if (number != stat.catch_number)
+            if (number != inst.catch_number)
             {
                 dp_g = Instantiate(destruction_particle_ground, transform.position, transform.rotation) as GameObject;
                 DestroyParticles(ref dp_g);
             }
-            else if (number == stat.catch_number)
+            else if (number == inst.catch_number)
             {
                 FailScreen();
             }
@@ -40,18 +34,18 @@ public class NumberBox : MonoBehaviour {
 
     void OnMouseDown()
     {
-        if (number == stat.catch_number)
+        if (number == inst.catch_number)
         {
-            stat.score += number;
+            inst.score += number;
             PlayExpSound(expsound_right);
-            stat.score_txt.gameObject.GetComponent<Animator>().Play("ScorePlusAnim", -1, 0f);
-            stat.GameUI.GetComponent<Animator>().Play("CatchNumberAnim", -1, 0f);
-            stat.catch_number = Random.Range(0, 20);
-            stat.UpdateScoreAndCatchNumber();
+            inst.score_txt.gameObject.GetComponent<Animator>().Play("ScorePlusAnim", -1, 0f);
+            inst.GameUI.GetComponent<Animator>().Play("CatchNumberAnim", -1, 0f);
+            inst.catch_number = Random.Range(0, 20);
+            inst.UpdateScoreAndCatchNumber();
             dp_c = Instantiate(destruction_particle_catch, transform.position, transform.rotation) as GameObject;
             DestroyParticles(ref dp_c);
         }
-        else if (number != stat.catch_number)
+        else if (number != inst.catch_number)
         {
             PlayExpSound(expsound_wrong);
             FailScreen();
@@ -75,7 +69,7 @@ public class NumberBox : MonoBehaviour {
     }
     private void FailScreen()
     {
-        stat.ShowFailScreen();
+        inst.ShowFailScreen();
         DestroyAllBoxes();
     }
 

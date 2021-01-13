@@ -5,33 +5,26 @@ using GoogleMobileAds.Api;
 
 public class Statistics : MonoBehaviour {
 
-    public GameObject MainMenu;
-    public GameObject GameUI;
-    public GameObject FailScreen;
-    public float score;
-    public float best_score;
+    public GameObject MainMenu, GameUI, FailScreen, smiley, BestScore_notif, Ground, canvas;
+    public float score, best_score;
     public int catch_number;
     public SpawnNumberBoxes SNB;
-    public Text score_txt;
-    public Text catchthenumber_txt;
-    public Text MMBestScore;
-    public Text FSBestScore;
-    public GameObject smiley;
-    public GameObject BestScore_notif;
-    public GameObject Ground;
+    public Text score_txt, catchthenumber_txt, MMBestScore, FSBestScore;
     public float speed = 20f;
     public AudioSource asource;
-    public AudioClip button_pressed;
-    public AudioClip best_score_notif;
-    public AudioClip smiley_notif;
-    public GameObject canvas;
+    public AudioClip button_pressed, best_score_notif, smiley_notif;
+    public static Statistics Instance { get; private set; }
     private float each100 = 100;
-    private GameObject smiley_obj;
-    private GameObject bestscore_obj;
+    private GameObject smiley_obj, bestscore_obj;
     private bool bestscore = false;
     private BannerView bannerv;
     private InterstitialAd interstitial;
     private RewardBasedVideoAd reward_video;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
