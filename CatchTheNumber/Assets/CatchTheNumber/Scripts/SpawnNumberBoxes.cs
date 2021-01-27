@@ -3,12 +3,11 @@ using System.Collections;
 
 public class SpawnNumberBoxes : MonoBehaviour {
 
-    public GameObject number_box;
     public AudioSource saudios;
     public bool ingame;
+    public BoxandExplosionsPool BaEPool;
     private float step;
     private int generateanswer_chance;
-    private GameObject number_b;
     private NumberBox nb;
     private Statistics st;
 
@@ -30,9 +29,11 @@ public class SpawnNumberBoxes : MonoBehaviour {
     private void SpawnBoxes()
     {
         generateanswer_chance = Random.Range(1, 100);
-        number_b = Instantiate(number_box, new Vector2(Random.Range(17.5f, 142.5f), transform.position.y), transform.rotation) as GameObject;
-        nb = number_b.GetComponent<NumberBox>();
+        nb = BaEPool.GetStuff<NumberBox>(BaEPool.pooled_boxes);
+        nb.transform.position = new Vector2(Random.Range(17.5f, 142.5f), transform.position.y);
+        nb.gameObject.SetActive(true);
         nb.inst = st;
+        nb.BEP = BaEPool;
         nb.audios = saudios;
         nb.number = (generateanswer_chance <= 35) ? st.catch_number : Random.Range(0, 20);
         nb.num_text.text = nb.number.ToString();

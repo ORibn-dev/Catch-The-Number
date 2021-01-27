@@ -6,12 +6,12 @@ public class NumberBox : MonoBehaviour {
 
     public int number;
     public TextMesh num_text;
-    public GameObject destruction_particle, destruction_particle_ground, destruction_particle_catch;
     public float boxspeed;
     public AudioClip expsound_right, expsound_wrong, expsound_ground;
     public AudioSource audios;
     public Statistics inst;
-    private GameObject[] allnumboxes;
+    public BoxandExplosionsPool BEP;
+    private NumberBox[] allnumboxes;
     private GameObject dp, dp_g, dp_c;
 
     void Update()
@@ -22,8 +22,8 @@ public class NumberBox : MonoBehaviour {
             PlayExpSound(expsound_ground);
             if (number != inst.catch_number)
             {
-                dp_g = Instantiate(destruction_particle_ground, transform.position, transform.rotation) as GameObject;
-                DestroyParticles(ref dp_g);
+                BEP.InitiateExplosion(2, transform.position, transform.rotation);
+                TurnOffBoxandTrail();
             }
             else if (number == inst.catch_number)
             {
@@ -38,23 +38,13 @@ public class NumberBox : MonoBehaviour {
         {
             PlayExpSound(expsound_right);
             inst.UpdateScore(number);
-            dp_c = Instantiate(destruction_particle_catch, transform.position, transform.rotation) as GameObject;
-            DestroyParticles(ref dp_c);
+            BEP.InitiateExplosion(1, transform.position, transform.rotation);
+            TurnOffBoxandTrail();
         }
         else if (number != inst.catch_number)
         {
             PlayExpSound(expsound_wrong);
             FailScreen();
-        }
-    }
-
-    private void DestroyAllBoxes()
-    {
-        allnumboxes = GameObject.FindGameObjectsWithTag("numbox");
-        foreach (GameObject numbox in allnumboxes)
-        {
-            numbox.GetComponent<NumberBox>().DestoryThisBox();
-            Destroy(numbox);
         }
     }
 
@@ -66,18 +56,11 @@ public class NumberBox : MonoBehaviour {
     private void FailScreen()
     {
         inst.ShowFailScreen();
-        DestroyAllBoxes();
+        BEP.DestroyAllBoxes();
     }
-
-    public void DestoryThisBox()
+    private void TurnOffBoxandTrail()
     {
-        dp = Instantiate(destruction_particle, transform.position, transform.rotation) as GameObject;
-        Destroy(dp, 1f);
-    }
-
-    private void DestroyParticles(ref GameObject partexp)
-    {
-        Destroy(partexp, 2f);
-        Destroy(gameObject);
+        GetComponent<TrailRenderer>().Clear();
+        gameObject.SetActive(false);
     }
 }

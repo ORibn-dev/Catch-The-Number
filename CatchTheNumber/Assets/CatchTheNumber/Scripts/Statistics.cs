@@ -13,7 +13,9 @@ public class Statistics : MonoBehaviour {
     public float speed = 20f;
     public AudioSource asource;
     public AudioClip button_pressed, best_score_notif, smiley_notif;
+
     public static Statistics Instance { get; private set; }
+
     private float each100 = 100;
     private GameObject smiley_obj, bestscore_obj;
     private bool bestscore = false;

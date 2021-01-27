@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CatchTheNumber\Scripts\BoxandExplosionsPool.cs" />
      <Compile Include="Assets\CatchTheNumber\Scripts\GroundAnim.cs" />
      <Compile Include="Assets\CatchTheNumber\Scripts\MeshRendFix.cs" />
      <Compile Include="Assets\CatchTheNumber\Scripts\MeshRendFix2.cs" />
