@@ -55,13 +55,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CatchTheNumber\Scripts\BoxandExplosionsPool.cs" />
-     <Compile Include="Assets\CatchTheNumber\Scripts\GroundAnim.cs" />
-     <Compile Include="Assets\CatchTheNumber\Scripts\MeshRendFix.cs" />
-     <Compile Include="Assets\CatchTheNumber\Scripts\MeshRendFix2.cs" />
-     <Compile Include="Assets\CatchTheNumber\Scripts\NumberBox.cs" />
-     <Compile Include="Assets\CatchTheNumber\Scripts\SpawnNumberBoxes.cs" />
-     <Compile Include="Assets\CatchTheNumber\Scripts\Statistics.cs" />
+     <Compile Include="Assets\CatchTheNumber\Scripts\Background\GroundAnim.cs" />
+     <Compile Include="Assets\CatchTheNumber\Scripts\Background\MeshRendFix.cs" />
+     <Compile Include="Assets\CatchTheNumber\Scripts\Background\MeshRendFix2.cs" />
+     <Compile Include="Assets\CatchTheNumber\Scripts\GameSounds.cs" />
+     <Compile Include="Assets\CatchTheNumber\Scripts\MainMenuAndAds\GooglePlayAds.cs" />
+     <Compile Include="Assets\CatchTheNumber\Scripts\MainMenuAndAds\MainMenu.cs" />
+     <Compile Include="Assets\CatchTheNumber\Scripts\NumberBoxes\BoxandExplosionsPool.cs" />
+     <Compile Include="Assets\CatchTheNumber\Scripts\NumberBoxes\IObserver.cs" />
+     <Compile Include="Assets\CatchTheNumber\Scripts\NumberBoxes\NumberBox.cs" />
+     <Compile Include="Assets\CatchTheNumber\Scripts\NumberBoxes\SpawnNumberBoxes.cs" />
+     <Compile Include="Assets\CatchTheNumber\Scripts\Statistics\ScoreTypes.cs" />
+     <Compile Include="Assets\CatchTheNumber\Scripts\Statistics\Statistics.cs" />
      <Compile Include="Assets\GoogleMobileAds\Api\AdFailedToLoadEventArgs.cs" />
      <Compile Include="Assets\GoogleMobileAds\Api\AdLoader.cs" />
      <Compile Include="Assets\GoogleMobileAds\Api\AdPosition.cs" />

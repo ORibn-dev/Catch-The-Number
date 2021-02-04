@@ -256,3 +256,4 @@ D:\Job\CatchTheNumber\Temp\bin\Debug\UnityEngine.ClusterRendererModule.xml
 D:\Job\CatchTheNumber\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 D:\Job\CatchTheNumber\obj\Debug\Assembly-CSharp.dll
 D:\Job\CatchTheNumber\obj\Debug\Assembly-CSharp.pdb
+D:\Job\CatchTheNumber\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb

@@ -275,3 +275,5 @@ D:\Job\CatchTheNumber\Temp\bin\Debug\nunit.framework.xml
 D:\Job\CatchTheNumber\obj\Debug\Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
 D:\Job\CatchTheNumber\obj\Debug\Assembly-CSharp-Editor.dll
 D:\Job\CatchTheNumber\obj\Debug\Assembly-CSharp-Editor.pdb
+D:\Job\CatchTheNumber\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+D:\Job\CatchTheNumber\Temp\bin\Debug\Assembly-CSharp.pdb
